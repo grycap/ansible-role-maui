@@ -1,0 +1,33 @@
+---
+  - name: Include "{{ansible_os_family}}" recipe
+    include: "{{ansible_os_family}}.yaml"
+
+  - name: Download Maui source code
+    subversion: repo=svn://opensvn.adaptivecomputing.com/maui/branches/3.3.1 dest=/tmp/maui
+
+  - name: Configure source
+  - command: ./configure --prefix=/usr/local/maui chdir=/tmp/maui/ creates=/tmp/maui/Makefile
+
+  - name: Build the code
+  - command: make chdir=/tmp/maui creates=chdir=/tmp/maui/bin/maui
+
+  - name: Install Maui
+  - command: make install chdir=/tmp/maui creates=/usr/local/maui/maui.cfg
+
+  - name: Set Maui configuration
+    lineinfile: dest=/usr/local/maui/maui.cfg regexp={{ item.regexp }} line={{ item.line }}
+    with_items:
+      - { regexp: 'DEFERTIME', line: 'DEFERTIME  0' }
+      - { regexp: 'DEFERCOUNT', line: 'DEFERCOUNT  99999' }
+
+  - name: Kill maui if exists
+    shell: kill $(pgrep maui)
+    ignore_errors: yes
+
+  - name: Start maui daemon
+    shell: /usr/local/maui/sbin/maui
+
+  - name: Add maui commands to the bash
+    copy:
+       dest: /etc/profile.d/maui.sh
+       content: export PATH="$PATH:/usr/local/maui/bin"

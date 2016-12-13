@@ -1,0 +1,6 @@
+---
+  - name: Stop torque scheduler service
+    service: name=torque-scheduler state=stopped pattern=/usr/sbin/pbs_sched enabled=no
+
+  - name: Install needed packages
+    apt: name=libtorque2-dev,subversion
