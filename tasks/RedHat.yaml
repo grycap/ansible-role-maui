@@ -1,3 +1,6 @@
 ---
   - name: Install Yum ssh package
     yum: name=torque-devel,subversion
+
+  - name: Set Readhat facts
+    set_fact: SCHED_SERVICE="pbs_sched"

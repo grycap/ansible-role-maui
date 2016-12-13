@@ -2,6 +2,9 @@
   - name: Include "{{ansible_os_family}}" recipe
     include: "{{ansible_os_family}}.yaml"
 
+  - name: Stop torque scheduler service
+    service: name={{SCHED_SERVICE}} state=stopped pattern=/usr/sbin/pbs_sched enabled=no
+
   - name: Download Maui source code
     subversion: repo=svn://opensvn.adaptivecomputing.com/maui/branches/3.3.1 dest=/tmp/maui
 
