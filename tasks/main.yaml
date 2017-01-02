@@ -4,9 +4,10 @@
 
   - name: Stop torque scheduler service
     service: name={{SCHED_SERVICE}} state=stopped pattern=/usr/sbin/pbs_sched enabled=no
+    ignore_errors: yes
 
   - name: Download Maui source code
-    subversion: repo=svn://opensvn.adaptivecomputing.com/maui/branches/3.3.1 dest=/tmp/maui
+    subversion: repo=svn://opensvn.adaptivecomputing.com/maui/branches/{{ maui_version }} dest=/tmp/maui
 
   - name: Configure source
     command: ./configure --prefix=/usr/local/maui chdir=/tmp/maui/ creates=/tmp/maui/Makefile

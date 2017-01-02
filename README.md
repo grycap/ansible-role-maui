@@ -7,6 +7,14 @@ Maui Role
 Install [Maui](http://www.adaptivecomputing.com/products/open-source/maui).  
 Bear in mind that this role is to be used in combination with the grycap.torque role.
 
+Role Variables
+----------------
+
+The variables that can be passed to this role and a brief description about them are as follows.
+
+	# MAUI version to install
+	maui_version: 3.3.1
+
 Example Playbook
 ----------------
 ```
