@@ -1,6 +1,10 @@
 ---
-  - name: Install Yum ssh package
-    yum: name=torque-devel,subversion,"@Development Tools"
+  - name: Install missing dependences in RedHat system
+    yum: pkg={{ item }} state=installed
+    with_items:
+     - "@Development Tools"
+     - torque-devel
+     - subversion
 
   - name: Set Readhat facts
     set_fact: SCHED_SERVICE="pbs_sched"
