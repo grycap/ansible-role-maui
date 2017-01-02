@@ -1,6 +1,6 @@
 ---
   - name: Install needed packages
-    apt: name=libtorque2-dev,subversion,gcc
+    apt: name=libtorque2-dev,subversion,build-essential
 
   - name: Set Debian facts
     set_fact: SCHED_SERVICE="torque-scheduler"
