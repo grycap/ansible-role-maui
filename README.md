@@ -7,7 +7,10 @@ Maui Role (DEPRECATED)
 Install [Maui](http://www.adaptivecomputing.com/products/open-source/maui).  
 Bear in mind that this role is to be used in combination with the grycap.torque role.
 
-Warning: Adaptative computing is no longer supporting Maui. Instead, they recommend to use MOAB (http://www.adaptivecomputing.com/products/maui/)
+```diff
+- WARNING
+```
+Adaptative computing is no longer supporting Maui. Instead, they recommend to use Moab (http://www.adaptivecomputing.com/products/maui/)
 
 Role Variables
 ----------------
