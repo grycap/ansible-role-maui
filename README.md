@@ -8,9 +8,8 @@ Install [Maui](http://www.adaptivecomputing.com/products/open-source/maui).
 Bear in mind that this role is to be used in combination with the grycap.torque role.
 
 ```diff
-- WARNING
+- WARNING: Adaptative computing is no longer supporting Maui. Instead, they recommend to use Moab (http://www.adaptivecomputing.com/products/maui/)
 ```
-Adaptative computing is no longer supporting Maui. Instead, they recommend to use Moab (http://www.adaptivecomputing.com/products/maui/)
 
 Role Variables
 ----------------
