@@ -1,11 +1,13 @@
 [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Build Status](https://travis-ci.org/grycap/ansible-role-maui.svg?branch=master)](https://travis-ci.org/grycap/ansible-role-maui)
 
-Maui Role
+Maui Role (DEPRECATED)
 =======================
 
 Install [Maui](http://www.adaptivecomputing.com/products/open-source/maui).  
 Bear in mind that this role is to be used in combination with the grycap.torque role.
+
+Warning: Adaptative computing is no longer supporting Maui. Instead, they recommend to use MOAB (http://www.adaptivecomputing.com/products/maui/)
 
 Role Variables
 ----------------
