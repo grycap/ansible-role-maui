@@ -15,6 +15,12 @@
       dest: /tmp/
       remote_src: yes
 
+  - name: Create link
+    file:
+      src: /tmp/maui-{{ maui_version }}
+      dest: /tmp/maui
+      state: link
+
   - name: Configure source
     command: ./configure --prefix=/usr/local/maui chdir=/tmp/maui/ creates=/tmp/maui/Makefile
 
