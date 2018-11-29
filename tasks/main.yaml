@@ -7,7 +7,19 @@
     ignore_errors: yes
 
   - name: Download Maui source code
-    subversion: repo=svn://opensvn.adaptivecomputing.com/maui/branches/{{ maui_version }} dest=/tmp/maui
+    get_url: url=http://ftpgrycap.i3m.upv.es/src/maui-{{ maui_version }}.tar.gz dest=/tmp/maui-{{ maui_version }}.tar.gz
+
+  - name: Unarchive Maui source code
+    unarchive:
+      src: /tmp/maui-{{ maui_version }}.tar.gz
+      dest: /tmp/
+      remote_src: yes
+
+  - name: Create link
+    file:
+      src: /tmp/maui-{{ maui_version }}
+      dest: /tmp/maui
+      state: link
 
   - name: Configure source
     command: ./configure --prefix=/usr/local/maui chdir=/tmp/maui/ creates=/tmp/maui/Makefile
